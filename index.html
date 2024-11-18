@@ -9,13 +9,28 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="nav"></div>
-  <div class="header">
-    <div class="profile"></div>
+  <div id="nav">
+    <span id="site-name">JJ Studio</span>
+    <form id="theme-control">
+      <input type="color" id="pick-color">
+      <input type="button" id="cycle-theme">
+    </form>
   </div>
-  <div class="main">
-    <div class="gallery"></div>
+  <div id="header">
+    <div id="banner">
+      <img src="" alt="Banner image">
+    </div>
+    <div id="profile"></div>
+    <div id="bio"></div>
   </div>
-  <div class="footer"></div>
+  <div id="portfolio">
+    <div id="featured"></div>
+    <div id="gallery"></div>
+  </div>
+  <div id="footer"></div>
+  <dialog id="view-dialog">
+    <img id="view-image">
+    <span id="view-desc"></span>
+  </dialog>
 </body>
 </html>
