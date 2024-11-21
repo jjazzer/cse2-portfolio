@@ -1,9 +1,17 @@
 :root {
-  --ac-color: #1a1;
+  --ac-color: #447;
+  --ac-color-light: #77a;
+  --ac-color-dark: #003;
   --dark-fg-color: white;
-  --dark-bg-color: #111;
+  --dark-bg-color: #222;
+  --darkless-bg-color: #555;
+  --darker-bg-color: #000;
   --light-fg-color: black;
   --light-bg-color: #aaf;
+  --lightless-bg-color: #77c;
+  --lighter-bg-color: #ddf;
+
+  --nav-height: 64px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -23,21 +31,40 @@ body {
 
 /* Navigation Bar */
 
-#nav {}
+#nav {
+  display: flex;
+  height: var(--nav-height);
+  padding: 16px;
+  position: fixed;
+  width: 100%;
+
+  background-color: var(--darker-bg-color);
+
+  justify-content: space-between;
+  align-items: center;
+}
 
 #site-name {}
 
-#theme-control {}
+#theme-control {
+  display: flex;
+}
 
-#theme-control * {}
+#theme-control * {
+}
 
-#theme-control #pick-color {}
+#pick-color::-webkit-textfield-decoration-container {
+  background-color: red;
+  /* width: 12px; */
+}
 
-#theme-control input {}
+#cycle-theme {}
 
 /* Header */
 
-#header {}
+#header {
+  margin-top: var(--nav-height);
+}
 
 #banner {}
 
@@ -68,3 +95,7 @@ body {
 #view-dialog img {}
 
 #view-dialog span {}
+
+/* Classes */
+
+.highlight {}

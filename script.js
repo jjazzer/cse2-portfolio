@@ -4,7 +4,7 @@ const IMAGES = [
 		id: 'profile-picture',
     group: ['profile'],
     date: 0,
-    desc: () => `Image from ${getImageReference(IMAGES, 'photoshoot-4')}.`,
+    desc: () => `Image from ${getImageReference('photoshoot-4')}.`,
     path: '/images/profile-picture.jpg'
   },
   {
@@ -12,8 +12,8 @@ const IMAGES = [
 		id: 'banner-image',
     group: ['profile'],
     date: 0,
-    desc: () => `Image from ${getImageReference(IMAGES, 'movie-poster')}.`,
-    path: '/images/bday-invi.png'
+    desc: () => `Image from ${getImageReference('movie-poster')}.`,
+    path: '/images/banner-image.png'
   },
   {
     name: 'Birthday Invitation',
@@ -161,7 +161,7 @@ const IMAGES = [
   }
 ];
 
-const PARTS = {
+const E = {
   profilePicture: document.getElementById('profile-picture'),
   bannerImage: document.getElementById('banner-image')
 };
@@ -178,11 +178,11 @@ function getImageReference(imageId) {
 
 function loadProfileImages() {
   const profileMatch = IMAGES.find(img => img.id === 'profile-picture');
+  E.profilePicture.src = location.origin + profileMatch.path;
   const bannerMatch = IMAGES.find(img => img.id === 'banner-image');
-  PARTS.profilePicture.src = location.origin + profileMatch.path;
-  PARTS.bannerImage.src = location.origin + bannerMatch.path;
+  E.bannerImage.src = location.origin + bannerMatch.path;
 }
 
-window.onload = () => {
+// window.onload = () => {
   loadProfileImages();
-};
+// };
