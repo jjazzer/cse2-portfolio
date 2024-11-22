@@ -117,7 +117,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:56:29 GMT+0800'),
     desc: 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-1.png'
+    path: '/images/photoshoot-1.jpg'
   },
   {
     name: 'Photoshoot 2',
@@ -125,7 +125,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:04 GMT+0800'),
     desc: 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-2.png'
+    path: '/images/photoshoot-2.jpg'
   },
   {
     name: 'Photoshoot 3',
@@ -133,7 +133,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:25 GMT+0800'),
     desc: 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-3.png'
+    path: '/images/photoshoot-3.jpg'
   },
   {
     name: 'Photoshoot 4',
@@ -141,7 +141,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:40 GMT+0800'),
     desc: 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-4.png'
+    path: '/images/photoshoot-4.jpg'
   },
   {
     name: 'Photoshoot 5',
@@ -149,7 +149,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:57 GMT+0800'),
     desc: 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-5.png'
+    path: '/images/photoshoot-5.jpg'
   },
   {
     name: 'Photoshoot 6',
@@ -157,7 +157,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:56:14 GMT+0800'),
     desc: 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-6.png'
+    path: '/images/photoshoot-6.jpg'
   }
 ];
 
@@ -168,12 +168,7 @@ const E = {
 
 function getImageReference(imageId) {
   const match = IMAGES.find(img => img.id === imageId);
-
-  const link = document.createElement('a');
-  link.textContent = match.name;
-  link.href = location.origin + match.path;
-  
-  return link;
+  return `<a href="${location.origin + match.path}" target="_blank">${match.name}</a>`;
 }
 
 function loadProfileImages() {
@@ -183,6 +178,70 @@ function loadProfileImages() {
   E.bannerImage.src = location.origin + bannerMatch.path;
 }
 
-// window.onload = () => {
+function createTOC() {
+  const toc = IMAGES
+      .filter(img => !(img.id === 'profile-picture' || img.id === 'banner-image'))
+      .map(img => {
+        const date = new Date(img.date);
+        const monthName = date.toLocaleDateString('default', { month: 'long' });
+        const monthNameShort = date.toLocaleDateString('default', { month: 'short' });
+        const fullYear = date.getFullYear();
+        const monthYear = `${monthName} ${fullYear}`
+        return {
+          id: `${monthNameShort.toLowerCase()}-${fullYear}`,
+          date: Date.parse(`${monthYear} GMT+8`),
+          dateName: monthYear
+        };
+      })
+      .sort((a, b) => a.date - b.date)
+      .filter((v, i, a) => a.findIndex(x => x.date === v.date) === i);
+      
+  toc.forEach((x, i, a) => {
+    const section = document.createElement('div');
+    section.classList.add('section');
+    section.id = x.id;
+
+    const sectionHeader = document.createElement('div');
+    sectionHeader.classList.add('section-header');
+    sectionHeader.textContent = x.dateName;
+
+    const sectionGrid = document.createElement('div');
+
+    console.log(IMAGES
+      .filter(img => !(img.id === 'profile-picture' || img.id === 'banner-image'))
+      .filter(img => (i < a.length - 1)
+          ? x.date <= img.date && a[i + 1].date > img.date
+          : x.date <= img.date)
+    )
+
+    const viewImage = document.createElement('img');
+  });
+}
+
+function loadImages() {}
+
+window.onload = () => {
   loadProfileImages();
-// };
+};
+
+document.addEventListener('click', e => {
+  const view = document.getElementById('view-dialog');
+  if (e.target.classList.contains('view')) {
+    const id = e.target.id;
+    const imageData = IMAGES.find(img => img.id === id);
+
+    const viewImage = document.getElementById('view-image');
+    const viewDesc = document.getElementById('view-desc');
+    viewImage.src = location.origin + imageData.path;
+    viewDesc.innerHTML = imageData.desc();
+
+    setTimeout(() => view.show(), 0.01);
+  }
+  else if (e.target.id === 'view-dialog') {
+    view.close();
+    const viewImage = document.getElementById('view-image');
+    const viewDesc = document.getElementById('view-desc');
+    viewImage.src = '';
+    viewDesc.innerHTML = '';
+  }
+});
