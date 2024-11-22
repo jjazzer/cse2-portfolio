@@ -12,10 +12,10 @@
   --lightless-bg-color: #77c;
   --lighter-bg-color: #ddf;
 
-  --small-text: #aaa;
+  --small-text: #ddd;
 
   --nav-height: 64px;
-  --padding-side: 64px;
+  --padding-side: 32px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -134,6 +134,9 @@ a:hover, a:active {
 #bio {
   text-indent: 0.5in;
   text-align: justify;
+  background-color: #777;
+  padding: 16pt;
+  border-radius: 8pt;
 }
 
 /* Gallery */
@@ -149,16 +152,18 @@ a:hover, a:active {
 #toc {
   margin: 16px calc(var(--gap-size));
   margin-bottom: 32px;
-  padding: 0 32pt;
+  padding: 0 16pt;
   text-align: center;
 }
 
-#toc * {
-  white-space: nowrap;
+#toc > a:not(:last-child)::after {
+  content: ' • ';
+  color: var(--dark-fg-color);
 }
 
-.section {
-}
+#toc * {}
+
+.section {}
 
 .section > * {
   width: 100%;
@@ -167,26 +172,28 @@ a:hover, a:active {
 .section-header {
   text-align: center;
   color: var(--small-text);
-  background-color: var(--ac-color-dark);
-  margin: calc(var(--gap-size) / -2) calc(var(--gap-size) / 2);
-  padding: 8px 0;
+  background-color: #777;
+  margin: calc(var(--gap-size) / 2) calc(var(--gap-size) / 2);
+  padding: 8pt 0;
+  border-radius: 8pt;
 }
 
 .section-grid {
   --columns: 1;
-  --column-size:
-    calc(100% / var(--columns));
+  --column-size: calc(100% / var(--columns));
 
   display: grid;
   grid-template-columns: repeat(var(--columns), max(64px, var(--column-size)));
   width: 100%;
+  padding: 0 8pt;
 }
 
 .section-grid > img {
-  margin: calc(var(--gap-size) / 2);
+  padding: calc(var(--gap-size) / 2);
   aspect-ratio: 1;
   object-fit: cover;
-  background-color: #ff0;
+  /* background-color: #ff0; */
+  width: 100%;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -239,10 +246,12 @@ a:hover, a:active {
 
 #view-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: absolute;
-  aspect-ratio: 16 / 9;
-  width: min(768px, 80vw);
+  width: min(90vw, 90vh);
+  height: min(90vw, 90vh);
+  width: fit-content(90%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -255,16 +264,22 @@ a:hover, a:active {
 }
 
 #view-content > * {
-  height: 100%;
+  width: 100%;
 }
 
 #view-image {
   object-fit: contain;
-  width: 70%;
+  height: 80%;
 }
 
 #view-desc {
   background-color: #222;
   padding: 16px;
-  word-break: break-all;
+  font-size: small;
+  font-style: italic;
+  height: 20%;
+}
+
+.view {
+  cursor: pointer;
 }
