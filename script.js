@@ -5,7 +5,7 @@ const IMAGES = [
     group: ['profile'],
     date: 0,
     desc: () => `Image from ${getImageReference('photoshoot-4')}.`,
-    path: '/images/profile-picture.webp'
+    path: './images/profile-picture.webp'
   },
   {
     name: 'Banner Image',
@@ -13,7 +13,7 @@ const IMAGES = [
     group: ['profile'],
     date: 0,
     desc: () => `Image from ${getImageReference('movie-poster')}.`,
-    path: '/images/banner-image.webp'
+    path: './images/banner-image.webp'
   },
   {
     name: 'Birthday Invitation',
@@ -21,7 +21,7 @@ const IMAGES = [
     group: ['card'],
     date: Date.parse('Monday, August 12, 2024, 13:38:16 GMT+0800'),
     desc: () => 'A birthday invitation card for my next birthday, directed to our instructor.',
-    path: '/images/bday-invi.webp'
+    path: './images/bday-invi.webp'
   },
   {
     name: 'Game Card: Allow',
@@ -29,7 +29,7 @@ const IMAGES = [
     group: ['card', 'game'],
     date: Date.parse('Friday, November 15, 2024, 11:54:51 GMT+0800'),
     desc: () => 'One of four trading cards for our own game concept.',
-    path: '/images/card-allow.webp'
+    path: './images/card-allow.webp'
   },
   {
     name: 'Game Card Cover',
@@ -37,7 +37,7 @@ const IMAGES = [
     group: ['card', 'cover', 'game'],
     date: Date.parse('Friday, November 15, 2024, 11:55:23 GMT+0800'),
     desc: () => 'The backside of the trading cards for our own game concept.',
-    path: '/images/card-cover.webp'
+    path: './images/card-cover.webp'
   },
   {
     name: 'Game Card: Time',
@@ -45,7 +45,7 @@ const IMAGES = [
     group: ['card', 'game'],
     date: Date.parse('Friday, November 15, 2024, 11:54:31 GMT+0800'),
     desc: () => 'One of four trading cards for our own game concept.',
-    path: '/images/card-time.webp'
+    path: './images/card-time.webp'
   },
   {
     name: 'Game Card: Will',
@@ -53,7 +53,7 @@ const IMAGES = [
     group: ['card', 'game'],
     date: Date.parse('Friday, November 15, 2024, 11:53:37 GMT+0800'),
     desc: () => 'One of four trading cards for our own game concept.',
-    path: '/images/card-will.webp'
+    path: './images/card-will.webp'
   },
   {
     name: 'Game Card: You',
@@ -61,7 +61,7 @@ const IMAGES = [
     group: ['card', 'game'],
     date: Date.parse('Friday, November 15, 2024, 11:55:06 GMT+0800'),
     desc: () => 'One of four trading cards for our own game concept.',
-    path: '/images/card-you.webp'
+    path: './images/card-you.webp'
   },
   {
     name: 'Collage',
@@ -69,7 +69,7 @@ const IMAGES = [
     group: ['collage'],
     date: Date.parse('Monday, July 29, 2024, 10:59:10 GMT+0800'),
     desc: () => 'A collection of images of me and my mother, and scenery from a resort.',
-    path: '/images/collage.webp'
+    path: './images/collage.webp'
   },
   {
     name: 'Game Cover: Will Time Allow You',
@@ -77,7 +77,7 @@ const IMAGES = [
     group: ['cover', 'game'],
     date: Date.parse('Friday, November 15, 2024, 11:55:48 GMT+0800'),
     desc: () => 'A box art for a game concept of our own.',
-    path: '/images/game-cover.webp'
+    path: './images/game-cover.webp'
   },
   {
     name: 'Logo: J.J. Studio',
@@ -85,7 +85,7 @@ const IMAGES = [
     group: ['logo'],
     date: Date.parse('Sunday, September 8, 2024, 22:15:09 GMT+0800'),
     desc: () => 'Logo design split for our very own brand.',
-    path: '/images/jj-studio-logo-split.webp'
+    path: './images/jj-studio-logo-split.webp'
   },
   {
     name: 'Movie Poster: Don\'t Leave Me in the Air',
@@ -93,7 +93,7 @@ const IMAGES = [
     group: ['cover', 'movie'],
     date: Date.parse('Wednesday, September 11, 2024, 10:26:25 GMT+0800'),
     desc: () => 'A movie poster for our own movie concept.',
-    path: '/images/movie-poster.webp'
+    path: './images/movie-poster.webp'
   },
   {
     name: 'Logo: O.V.J. Dress Shop',
@@ -101,7 +101,7 @@ const IMAGES = [
     group: ['logo'],
     date: Date.parse('Sunday, September 8, 2024, 22:13:46 GMT+0800'),
     desc: () => 'Logo design split for my mother\'s dress-making business.',
-    path: '/images/ovj-logo-split.webp'
+    path: './images/ovj-logo-split.webp'
   },
   {
     name: 'Pen Tool Masking',
@@ -109,7 +109,7 @@ const IMAGES = [
     group: ['other'],
     date: Date.parse('Monday, August 19, 2024, 10:42:30 GMT+0800'),
     desc: () => 'Result of an activity involving the use of the pen tool to change the jacket color.',
-    path: '/images/pen+filter.webp'
+    path: './images/pen+filter.webp'
   },
   {
     name: 'Photoshoot 1',
@@ -117,7 +117,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:56:29 GMT+0800'),
     desc: () => 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-1.webp'
+    path: './images/photoshoot-1.webp'
   },
   {
     name: 'Photoshoot 2',
@@ -125,7 +125,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:04 GMT+0800'),
     desc: () => 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-2.webp'
+    path: './images/photoshoot-2.webp'
   },
   {
     name: 'Photoshoot 3',
@@ -133,7 +133,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:25 GMT+0800'),
     desc: () => 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-3.webp'
+    path: './images/photoshoot-3.webp'
   },
   {
     name: 'Photoshoot 4',
@@ -141,7 +141,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:40 GMT+0800'),
     desc: () => 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-4.webp'
+    path: './images/photoshoot-4.webp'
   },
   {
     name: 'Photoshoot 5',
@@ -149,7 +149,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:55:57 GMT+0800'),
     desc: () => 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-5.webp'
+    path: './images/photoshoot-5.webp'
   },
   {
     name: 'Photoshoot 6',
@@ -157,7 +157,7 @@ const IMAGES = [
     group: ['photoshoot'],
     date: Date.parse('Monday, September 23, 2024, 5:56:14 GMT+0800'),
     desc: () => 'One of six enhanced images for a photoshoot.',
-    path: '/images/photoshoot-6.webp'
+    path: './images/photoshoot-6.webp'
   }
 ];
 
