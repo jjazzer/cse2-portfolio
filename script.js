@@ -262,7 +262,7 @@ document.addEventListener('click', e => {
     viewImage.src = location.origin + imageData.path;
     viewDesc.innerHTML = imageData.desc();
 
-    setTimeout(() => view.show(), 0.01);
+    setTimeout(() => view.show(), 0.25);
   }
   else if (e.target.id === 'view-dialog') {
     view.close();
